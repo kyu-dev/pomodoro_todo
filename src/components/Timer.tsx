@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '/src/global.css'
 
 const TimerContainer = () => {
     
@@ -33,7 +34,7 @@ const TimerContainer = () => {
 
   return (
     <div>
-        <div>
+        <div className='timer'>
             <button onClick={handleDecrement} disabled={timer === 0  } >    -   </button>
             <h1>{formatTime(timer)}</h1>                     
             <button onClick={handleIncrement}>    +   </button>

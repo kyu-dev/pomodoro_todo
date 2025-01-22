@@ -1,0 +1,14 @@
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.timer button {
+    padding: 0.5rem 1rem;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
