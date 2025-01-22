@@ -1,8 +1,13 @@
-
+import TimerContainer from './container/TimerContainer'
 
 const App = () => {
   return (
-    <div>App</div>
+    <body>
+      <div>
+        <TimerContainer />
+      </div>
+
+    </body>
   )
 }
 
