@@ -3,10 +3,9 @@ import TimerContainer from './container/TimerContainer'
 const App = () => {
   return (
     <body>
-      <div>
+      <div className='app-container'>
         <TimerContainer />
       </div>
-
     </body>
   )
 }
