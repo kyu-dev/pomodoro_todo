@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Application Pomodoro avec Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application web moderne combinant un minuteur Pomodoro avec une liste de tâches, développée avec React et TypeScript.
 
-Currently, two official plugins are available:
+## 🚀 Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ⏲️ Minuteur Pomodoro
+- Minuteur configurable avec boutons +/- 5 minutes
+- Contrôles Start/Pause/Reset
+- Signal sonore à la fin du décompte
+- Affichage du temps au format MM:SS
+- Interface utilisateur intuitive avec boutons de contrôle
 
-## Expanding the ESLint configuration
+### 📝 Liste de Tâches
+- Ajout de tâches avec validation
+- Suppression de tâches individuelles
+- Interface réactive et animations fluides
+- Sauvegarde locale des tâches
+- Support de la touche Entrée pour l'ajout rapide
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Technologies Utilisées
 
-- Configure the top-level `parserOptions` property like this:
+- **React** - Bibliothèque UI
+- **TypeScript** - Typage statique
+- **Vite** - Build tool et serveur de développement
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📚 Apprentissages Clés
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### React Hooks
+- Utilisation approfondie de `useState` pour la gestion d'état
+- Implémentation de `useEffect` pour les effets secondaires (minuteur)
+- Gestion des événements et des callbacks
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### TypeScript
+- Typage des props des composants
+- Interfaces pour les événements
+- Types génériques pour les hooks d'état
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Bonnes Pratiques
+- Architecture composant conteneur/présentation
+- Gestion des événements clavier
+- Styling modulaire et responsive
+- Validation des entrées utilisateur
+
+### Gestion du Temps
+- Manipulation des intervalles en JavaScript
+- Formatage du temps avec padStart
+- Gestion des états du minuteur
+
+## 🎨 Styling
+- Design moderne et épuré
+- Animations de transition fluides
+- Interface responsive
+- Palette de couleurs cohérente
+- Feedback visuel des interactions
+
+## 🔄 Flux de Données
+- État local pour le minuteur et les tâches
+- Props drilling minimal
+- Communication parent-enfant via callbacks
+- Gestion des événements utilisateur
+
+## 🌟 Points Forts
+- Code propre et bien organisé
+- Interface utilisateur intuitive
+- Performance optimisée
+- Expérience utilisateur fluide
+- Fonctionnalités bien intégrées
+
+## 🎯 Améliorations Possibles
+- Persistance des données (localStorage)
+- Statistiques d'utilisation
+- Thèmes personnalisables
+- Sons personnalisables
+- Mode plein écran
