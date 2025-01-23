@@ -1,7 +1,24 @@
+/* Reset de base pour éviter le scroll horizontal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .timer {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
 }
 
 .timer button {
@@ -11,14 +28,179 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.2s;
+}
+
+.timer button:hover {
+    background-color: #e0e0e0;
+}
+
+.timer button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.timer h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    min-width: 200px;
+    font-family: monospace;
+    text-align: center;
 }
 
 .app-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
-    justify-content: center;
+    min-height: 100vh;
     align-items: center;
-    text-align: center;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Section Timer */
+.timer-section {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Section Todo */
+.todo-section {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 1rem;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.timer-controls button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.timer-controls button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.timer-controls button.reset {
+    background-color: #f44336;
+}
+
+.timer-controls button.reset:hover {
+    background-color: #da190b;
+}
+
+/* Styles pour le conteneur Todo */
+.todo-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Styles pour l'input et le bouton submit */
+.todo-input-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.todo-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.submit-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Styles pour la liste des todos */
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+}
+
+.todo-item span {
+    font-size: 1rem;
+    color: #333;
+}
+
+.todo-item button {
+    padding: 0.5rem 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.todo-item button:hover {
+    background-color: #da190b;
+    transform: translateY(-2px);
 }

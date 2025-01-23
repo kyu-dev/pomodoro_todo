@@ -1,12 +1,16 @@
 import TimerContainer from './container/TimerContainer'
+import TodoContainer from './container/TodoContainer'
 
 const App = () => {
   return (
-    <body>
-      <div className='app-container'>
+    <div className='app-container'>
+      <div className="timer-section">
         <TimerContainer />
       </div>
-    </body>
+      <div className="todo-section">
+        <TodoContainer />
+      </div>
+    </div>
   )
 }
 

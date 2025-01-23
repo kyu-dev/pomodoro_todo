@@ -15,12 +15,22 @@ const TimerContainer = () => {
         
         if (isRunning && timer > 0) {
             interval = setInterval(() => {
-                setTimer(prevTimer => prevTimer - 1);
+                setTimer(prevTimer => {
+                    if (prevTimer <= 1) {
+                        setIsRunning(false);
+                        const audio = new Audio('/src/assets/timer-end.mp3');
+                        audio.play();
+                        return 0;
+                    }
+                    return prevTimer - 1;
+                });
             }, 1000);
         }
         
         return () => {
-            if (interval) clearInterval(interval);
+            if (interval) {
+                clearInterval(interval);
+            }
         };
     }, [isRunning, timer]);
 
@@ -31,7 +41,7 @@ const TimerContainer = () => {
 
     const handleIncrement = () => {
         if (!isRunning) {
-            setTimer(prevTimer => prevTimer + fiveMinutesInSeconds);
+            setTimer(prevTimer => prevTimer + fiveMinutesInSeconds);   // ajoute 5 minutes au timer
         }
     }
 
@@ -39,7 +49,7 @@ const TimerContainer = () => {
         if (!isRunning) {
             setTimer(prevTimer => {
                 if (prevTimer > 0) {
-                    return prevTimer - fiveMinutesInSeconds;
+                    return prevTimer - fiveMinutesInSeconds;        // regarde si le timer est supérieur à 0, si oui decremente le timer de 5 minutes 
                 }
                 return 0;
             });
@@ -51,9 +61,9 @@ const TimerContainer = () => {
     }
 
     const formatTime = (seconds: number) => {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+        const minutes = Math.floor(seconds / 60); 
+        const remainingSeconds = seconds % 60;              
+        return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;   // formate le timer en minutes et secondes
     };
 
     return (
@@ -64,14 +74,16 @@ const TimerContainer = () => {
                 onDecrement={handleDecrement}
                 formatTime={formatTime}
             />
-            <StartBtn 
-                onClick={handleStartStop} 
-                label={isRunning ? "Pause" : "Start"} 
-            />
-            <ResetBtn
-                onClick={handleReset}
-                label='Reset'
-            />
+            <div className="timer-controls">
+                <StartBtn 
+                    onClick={handleStartStop} 
+                    label={isRunning ? "Pause" : "Start"} 
+                />
+                <ResetBtn
+                    onClick={handleReset}
+                    label='Reset'
+                />
+            </div>
         </div>
     )
 }
