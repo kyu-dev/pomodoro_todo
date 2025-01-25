@@ -14,9 +14,13 @@ const Timer = ({
   return (
     <div>
         <div className='timer'>
-            <button onClick={onDecrement} disabled={timer === 0}>-</button>
+            <button onClick={onDecrement} disabled={timer === 0}>
+              <i className="fas fa-minus"></i>
+            </button>
             <h1>{formatTime(timer)}</h1>                     
-            <button onClick={onIncrement}>+</button>
+            <button onClick={onIncrement}>
+              <i className="fas fa-plus"></i>
+            </button>
         </div>
     </div>
   )
