@@ -10,6 +10,8 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    background: linear-gradient(145deg, #1d1d1f 0%, #2d2d2f 100%);  /* Fond plus sombre et dramatique */
+    color: #f5f5f7;
 }
 
 .timer {
@@ -28,30 +30,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
-    border: none;
-    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;  /* Moins arrondi */
     cursor: pointer;
-    font-size: 1.5rem;
-    transition: background-color 0.2s;
+    font-size: 1rem;
+    transition: all 0.2s;
+    color: #f5f5f7;
 }
 
 .timer button:hover {
-    background-color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .timer button:disabled {
-    background-color: #cccccc;
+    background-color: rgba(255, 255, 255, 0.05);
     cursor: not-allowed;
     opacity: 0.7;
 }
 
 .timer h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;  /* Plus grand */
     margin: 0;
     min-width: 200px;
-    font-family: monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
     text-align: center;
+    font-weight: 700;
+    color: #f5f5f7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .app-container {
@@ -60,28 +67,36 @@ body {
     width: 100%;
     min-height: 100vh;
     align-items: center;
-    background-color: #f8f9fa;
+    background: transparent;
     overflow-x: hidden;
+    padding: 0;
 }
 
 /* Section Timer */
 .timer-section {
     position: sticky;
     top: 0;
-    background-color: #f8f9fa;
+    background: rgba(45, 45, 47, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem 0;
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 /* Section Todo */
 .todo-section {
     width: 100%;
     max-width: 500px;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
     overflow-y: auto;
     padding-bottom: 2rem;
 }
@@ -95,36 +110,49 @@ body {
 }
 
 .timer-controls button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background-color: #4CAF50;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: #0071e3;
     color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
 }
 
 .timer-controls button:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
+    background-color: #0077ed;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.4);
+}
+
+.timer-controls button i {
+    font-size: 1rem;
 }
 
 .timer-controls button.reset {
-    background-color: #f44336;
+    background-color: #86868b;  
+    box-shadow: 0 4px 12px rgba(134, 134, 139, 0.3);  
 }
 
 .timer-controls button.reset:hover {
-    background-color: #da190b;
+    background-color: #94949a;
+    box-shadow: 0 6px 16px rgba(134, 134, 139, 0.4);  
 }
 
 /* Styles pour le conteneur Todo */
 .todo-container {
-    background-color: white;
+    background: rgba(45, 45, 47, 0.7);
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Styles pour l'input et le bouton submit */
@@ -132,35 +160,45 @@ body {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    width: 100%;
 }
 
 .todo-input {
     flex: 1;
-    padding: 0.8rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.2s;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f5f5f7;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
 .todo-input:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #0071e3;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+}
+
+.todo-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .submit-btn {
-    padding: 0.8rem 1.5rem;
-    background-color: #4CAF50;
+    background: #0071e3;
     color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 12px;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
+    background: #0077ed;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 113, 227, 0.4);
 }
 
 /* Styles pour la liste des todos */
@@ -174,33 +212,160 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    transition: transform 0.2s;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(60, 60, 67, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
 .todo-item:hover {
-    transform: translateX(5px);
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(70, 70, 77, 0.8);
 }
 
 .todo-item span {
-    font-size: 1rem;
-    color: #333;
+    color: #f5f5f7;
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
 .todo-item button {
-    padding: 0.5rem 1rem;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f5f5f7;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    margin-left: 1rem;
 }
 
 .todo-item button:hover {
-    background-color: #da190b;
+    background: rgba(255, 59, 48, 0.8);  
+    color: white;
     transform: translateY(-2px);
+}
+
+.todo-item button i {
+    font-size: 1rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .timer h1 {
+        font-size: 3.5rem;  /* Timer plus petit sur tablette */
+        min-width: 150px;
+    }
+
+    .timer-controls {
+        flex-direction: row;
+        padding: 0 1rem;
+    }
+
+    .timer-controls button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .todo-section {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .todo-container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .timer h1 {
+        font-size: 2.8rem;  /* Timer encore plus petit sur mobile */
+        min-width: 120px;
+    }
+
+    .timer button {
+        min-width: 35px;
+        height: 35px;
+    }
+
+    .timer-controls {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .timer-controls button {
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }
+
+    .todo-input-container {
+        flex-direction: column;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .todo-item {
+        padding: 1rem;
+    }
+
+    .todo-item button {
+        padding: 0.5rem 1rem;
+    }
+
+    .todo-container {
+        padding: 1rem;
+    }
+}
+
+/* Pour les très petits écrans */
+@media screen and (max-width: 320px) {
+    .timer h1 {
+        font-size: 2.2rem;
+        min-width: 100px;
+    }
+
+    .timer-section {
+        padding: 1rem 0;
+    }
+
+    .todo-item span {
+        font-size: 0.9rem;
+    }
+}
+
+/* Pour les grands écrans */
+@media screen and (min-width: 1200px) {
+    .todo-section {
+        max-width: 600px;  /* Plus large sur grands écrans */
+    }
+
+    .timer h1 {
+        font-size: 5rem;  /* Timer plus grand sur grands écrans */
+    }
+}
+
+/* Ajustements pour l'orientation paysage sur mobile */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .timer-section {
+        padding: 1rem 0;
+    }
+
+    .timer h1 {
+        font-size: 2.5rem;
+    }
+
+    .timer-controls {
+        flex-direction: row;
+    }
 }
